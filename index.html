@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manar Liman</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --ink:#0f0f14;
+  --ink-soft:#4a4a5a;
+  --ink-muted:#8a8a9a;
+  --cream:#faf9f5;
+  --surface:#f2f0e8;
+  --accent:#1A56DB;
+  --accent-soft:#dde9fb;
+  --accent-dark:#0d3a9e;
+  --gold:#c9933a;
+  --gold-soft:#fdf3e3;
+  --white:#ffffff;
+}
+
+html{scroll-behavior:smooth}
+
+body{
+  font-family:'DM Sans',sans-serif;
+  background:var(--cream);
+  color:var(--ink);
+  line-height:1.6;
+  overflow-x:hidden;
+  font-size:16px;
+}
+
+/* NAV */
+nav{
+  position:fixed;
+  top:0;left:0;right:0;
+  z-index:100;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:1rem 1.25rem;
+  background:rgba(250,249,245,0.95);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(15,15,20,0.08);
+}
+
+.nav-logo{
+  font-family:'Playfair Display',serif;
+  font-size:1.3rem;
+  color:var(--ink);
+  text-decoration:none;
+}
+
+.nav-links{
+  display:flex;
+  gap:1.25rem;
+  list-style:none;
+}
+
+.nav-links a{
+  text-decoration:none;
+  font-size:0.8rem;
+  font-weight:400;
+  color:var(--ink-soft);
+  transition:color 0.2s;
+}
+
+.nav-links a:hover{color:var(--accent)}
+
+/* HERO */
+.hero{
+  padding:6rem 1.25rem 3rem;
+  display:flex;
+  flex-direction:column;
+  gap:2.5rem;
+}
+
+.hero-tag{
+  display:inline-flex;
+  align-items:center;
+  gap:0.5rem;
+  background:var(--accent-soft);
+  color:var(--accent-dark);
+  font-size:0.75rem;
+  font-weight:500;
+  letter-spacing:0.07em;
+  text-transform:uppercase;
+  padding:0.4rem 1rem;
+  border-radius:100px;
+  width:fit-content;
+  margin-bottom:1rem;
+}
+
+.hero-tag::before{
+  content:'';
+  width:6px;height:6px;
+  border-radius:50%;
+  background:var(--accent);
+  animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+  0%,100%{opacity:1;transform:scale(1)}
+  50%{opacity:0.5;transform:scale(0.8)}
+}
+
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:2.6rem;
+  line-height:1.1;
+  letter-spacing:-0.02em;
+  margin-bottom:1rem;
+}
+
+.hero h1 em{
+  font-style:italic;
+  color:var(--accent);
+}
+
+.hero-desc{
+  font-size:0.95rem;
+  color:var(--ink-soft);
+  line-height:1.8;
+  margin-bottom:1.75rem;
+}
+
+.hero-ctas{
+  display:flex;
+  gap:0.75rem;
+  flex-wrap:wrap;
+}
+
+.btn-primary{
+  display:inline-flex;
+  align-items:center;
+  gap:0.4rem;
+  background:var(--accent);
+  color:white;
+  padding:0.8rem 1.5rem;
+  border-radius:100px;
+  text-decoration:none;
+  font-size:0.875rem;
+  font-weight:500;
+  transition:background 0.2s;
+  border:none;
+  cursor:pointer;
+}
+
+.btn-primary:hover{background:var(--accent-dark)}
+
+.btn-ghost{
+  display:inline-flex;
+  align-items:center;
+  gap:0.4rem;
+  background:transparent;
+  color:var(--ink);
+  padding:0.8rem 1.5rem;
+  border-radius:100px;
+  text-decoration:none;
+  font-size:0.875rem;
+  font-weight:500;
+  border:1.5px solid rgba(15,15,20,0.2);
+  transition:border-color 0.2s,color 0.2s;
+  cursor:pointer;
+}
+
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+
+/* IDENTITY CARD */
+.identity-card{
+  background:white;
+  border:1px solid rgba(15,15,20,0.1);
+  border-radius:20px;
+  padding:1.5rem;
+  box-shadow:0 12px 40px rgba(15,15,20,0.08);
+  position:relative;
+}
+
+.card-avatar{
+  width:52px;height:52px;
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--accent),#5b8dee);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-family:'Playfair Display',serif;
+  font-size:1.2rem;
+  margin-bottom:1rem;
+}
+
+.card-name{
+  font-family:'Playfair Display',serif;
+  font-size:1.2rem;
+  margin-bottom:0.2rem;
+}
+
+.card-title-sm{
+  font-size:0.8rem;
+  color:var(--ink-muted);
+  margin-bottom:1.25rem;
+}
+
+.card-pills{
+  display:flex;
+  flex-wrap:wrap;
+  gap:0.4rem;
+  margin-bottom:1.25rem;
+}
+
+.pill{
+  background:var(--accent-soft);
+  color:var(--accent-dark);
+  font-size:0.72rem;
+  font-weight:500;
+  padding:0.3rem 0.75rem;
+  border-radius:100px;
+}
+
+.pill.gold{background:var(--gold-soft);color:#8a5c14}
+
+.card-stats{
+  display:flex;
+  gap:0;
+  border-top:1px solid var(--surface);
+  padding-top:1.1rem;
+}
+
+.stat{flex:1;text-align:center}
+
+.stat:not(:last-child){border-right:1px solid var(--surface)}
+
+.stat-num{
+  font-family:'Playfair Display',serif;
+  font-size:1.4rem;
+  color:var(--accent);
+  display:block;
+}
+
+.stat-label{
+  font-size:0.7rem;
+  color:var(--ink-muted);
+}
+
+.avail-badge{
+  position:absolute;
+  top:-12px;right:1.25rem;
+  background:white;
+  border:1px solid rgba(15,15,20,0.1);
+  border-radius:100px;
+  padding:0.35rem 0.85rem;
+  font-size:0.72rem;
+  font-weight:500;
+  color:#2a7a4b;
+  box-shadow:0 4px 12px rgba(15,15,20,0.08);
+}
+
+/* SECTIONS */
+section{padding:3.5rem 1.25rem}
+
+.section-label{
+  font-size:0.72rem;
+  font-weight:500;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin-bottom:0.6rem;
+}
+
+.section-title{
+  font-family:'Playfair Display',serif;
+  font-size:1.9rem;
+  letter-spacing:-0.02em;
+  line-height:1.15;
+  margin-bottom:0.75rem;
+}
+
+.section-sub{
+  font-size:0.9rem;
+  color:var(--ink-soft);
+  line-height:1.75;
+  margin-bottom:2rem;
+}
+
+/* PROJECTS */
+.projects-list{
+  display:flex;
+  flex-direction:column;
+  gap:1rem;
+}
+
+.project-card{
+  background:white;
+  border:1px solid rgba(15,15,20,0.08);
+  border-radius:18px;
+  padding:1.5rem;
+  position:relative;
+  overflow:hidden;
+  transition:transform 0.2s,box-shadow 0.2s;
+}
+
+.project-card::before{
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;
+  height:3px;
+  background:var(--accent);
+  transform:scaleX(0);
+  transition:transform 0.3s;
+  transform-origin:left;
+}
+
+.project-card:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(15,15,20,0.1)}
+.project-card:hover::before{transform:scaleX(1)}
+
+.project-card.featured{
+  background:var(--ink);
+  color:white;
+}
+
+.project-card.featured::before{background:var(--gold)}
+
+.proj-top{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  margin-bottom:0.75rem;
+  gap:0.5rem;
+}
+
+.proj-emoji{font-size:1.75rem}
+
+.proj-arrow{
+  width:32px;height:32px;
+  border-radius:50%;
+  border:1px solid rgba(15,15,20,0.12);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:0.85rem;
+  color:var(--ink-muted);
+  flex-shrink:0;
+  margin-top:0.25rem;
+}
+
+.project-card.featured .proj-arrow{
+  border-color:rgba(255,255,255,0.2);
+  color:rgba(255,255,255,0.6);
+}
+
+.proj-type{
+  font-size:0.7rem;
+  font-weight:500;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin-bottom:0.3rem;
+}
+
+.project-card.featured .proj-type{color:var(--gold)}
+
+.proj-name{
+  font-family:'Playfair Display',serif;
+  font-size:1.25rem;
+  margin-bottom:0.6rem;
+  letter-spacing:-0.01em;
+}
+
+.proj-desc{
+  font-size:0.875rem;
+  color:var(--ink-soft);
+  line-height:1.7;
+  margin-bottom:1.1rem;
+}
+
+.project-card.featured .proj-desc{color:rgba(255,255,255,0.6)}
+
+.proj-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:0.35rem;
+}
+
+.proj-tag{
+  font-size:0.7rem;
+  padding:0.2rem 0.65rem;
+  border-radius:100px;
+  background:var(--surface);
+  color:var(--ink-soft);
+}
+
+.project-card.featured .proj-tag{
+  background:rgba(255,255,255,0.1);
+  color:rgba(255,255,255,0.7);
+}
+
+/* SKILLS */
+.skills-section{
+  background:var(--ink);
+  color:white;
+}
+
+.skills-section .section-title{color:white}
+.skills-section .section-sub{color:rgba(255,255,255,0.5)}
+.skills-section .section-label{color:var(--gold)}
+
+.skills-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1rem;
+}
+
+.skill-group{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:14px;
+  padding:1.25rem;
+}
+
+.sg-icon{font-size:1.3rem;margin-bottom:0.75rem;display:block}
+
+.sg-name{
+  font-size:0.68rem;
+  font-weight:500;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,0.35);
+  margin-bottom:0.75rem;
+}
+
+.sg-list{
+  list-style:none;
+  display:flex;
+  flex-direction:column;
+  gap:0.4rem;
+}
+
+.sg-list li{
+  font-size:0.82rem;
+  color:rgba(255,255,255,0.75);
+  display:flex;
+  align-items:center;
+  gap:0.4rem;
+}
+
+.sg-list li::before{
+  content:'';
+  width:3px;height:3px;
+  border-radius:50%;
+  background:var(--accent);
+  flex-shrink:0;
+}
+
+/* CERTS */
+.certs-list{
+  display:flex;
+  flex-direction:column;
+  gap:0.85rem;
+}
+
+.cert-card{
+  background:white;
+  border:1px solid rgba(15,15,20,0.08);
+  border-radius:14px;
+  padding:1.1rem 1.25rem;
+  display:flex;
+  gap:1rem;
+  align-items:center;
+}
+
+.cert-icon{
+  width:42px;height:42px;
+  border-radius:10px;
+  background:var(--accent-soft);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.1rem;
+  flex-shrink:0;
+}
+
+.cert-name{
+  font-weight:500;
+  font-size:0.875rem;
+  margin-bottom:0.2rem;
+}
+
+.cert-issuer{
+  font-size:0.75rem;
+  color:var(--ink-muted);
+}
+
+/* CONTACT */
+.contact-section{
+  background:var(--surface);
+  text-align:center;
+}
+
+.contact-section .section-title{margin:0 auto 0.75rem}
+.contact-section .section-sub{margin:0 auto 2rem}
+
+.contact-links{
+  display:flex;
+  flex-direction:column;
+  gap:0.75rem;
+  align-items:center;
+}
+
+.contact-link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:0.5rem;
+  padding:0.8rem 2rem;
+  border-radius:100px;
+  text-decoration:none;
+  font-size:0.875rem;
+  font-weight:500;
+  border:1.5px solid rgba(15,15,20,0.15);
+  color:var(--ink);
+  background:white;
+  width:100%;
+  max-width:280px;
+  transition:border-color 0.2s,color 0.2s;
+}
+
+.contact-link:hover{border-color:var(--accent);color:var(--accent)}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:1.5rem 1.25rem;
+  font-size:0.75rem;
+  color:var(--ink-muted);
+  border-top:1px solid rgba(15,15,20,0.07);
+}
+
+/* FADE IN */
+.fade-in{
+  opacity:0;
+  transform:translateY(16px);
+  transition:opacity 0.5s ease,transform 0.5s ease;
+}
+
+.fade-in.visible{opacity:1;transform:none}
+
+/* TABLET & UP */
+@media(min-width:600px){
+  nav{padding:1.2rem 2rem}
+
+  .hero{
+    padding:7rem 2rem 4rem;
+    flex-direction:row;
+    align-items:center;
+    gap:3rem;
+  }
+
+  .hero-content{flex:1}
+  .identity-card{width:300px;flex-shrink:0}
+
+  .hero h1{font-size:3rem}
+
+  section{padding:5rem 2rem}
+
+  .projects-list{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+  }
+
+  .project-card.featured{grid-column:1/-1}
+
+  .certs-list{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+  }
+
+  .contact-links{
+    flex-direction:row;
+    justify-content:center;
+  }
+
+  .contact-link{width:auto}
+}
+
+/* DESKTOP */
+@media(min-width:960px){
+  nav{padding:1.2rem 4rem}
+
+  .hero{
+    padding:8rem 4rem 5rem;
+    gap:5rem;
+  }
+
+  .hero h1{font-size:3.8rem}
+
+  .identity-card{width:340px}
+
+  section{padding:6rem 4rem}
+
+  .skills-grid{grid-template-columns:repeat(3,1fr)}
+
+  .certs-list{grid-template-columns:repeat(3,1fr)}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">ML.</a>
+  <ul class="nav-links">
+    <li><a href="#projects">Work</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-tag">Open to remote roles</div>
+    <h1>Creative<br>meets <em>Technical.</em></h1>
+    <p class="hero-desc">I'm Manar Liman — a CS graduate from Abuja building digital products that are equal parts functional and beautiful. From full-stack platforms to AI-powered tools, I bridge code and creativity.</p>
+    <div class="hero-ctas">
+      <a href="#projects" class="btn-primary">See my work →</a>
+      <a href="#contact" class="btn-ghost">Get in touch</a>
+    </div>
+  </div>
+
+  <div class="identity-card">
+    <div class="avail-badge">✅ Available now</div>
+    <div class="card-avatar">ML</div>
+    <div class="card-name">Manar Liman</div>
+    <div class="card-title-sm">Digital Professional · Abuja, Nigeria</div>
+    <div class="card-pills">
+      <span class="pill">Front-End Dev</span>
+      <span class="pill">AI Tools</span>
+      <span class="pill gold">Content Creation</span>
+      <span class="pill">Node.js</span>
+      <span class="pill gold">Prompt Eng.</span>
+    </div>
+    <div class="card-stats">
+      <div class="stat"><span class="stat-num">4+</span><span class="stat-label">Projects</span></div>
+      <div class="stat"><span class="stat-num">2+</span><span class="stat-label">Certs</span></div>
+      <div class="stat"><span class="stat-num">∞</span><span class="stat-label">Curiosity</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">Selected Work</div>
+  <h2 class="section-title">Things I've built</h2>
+  <p class="section-sub">Each project reflects a real problem I cared enough to solve — independently scoped, designed, and shipped.</p>
+
+  <div class="projects-list">
+
+    <div class="project-card featured fade-in">
+      <div class="proj-top">
+        <span class="proj-emoji">🤖</span>
+        <div class="proj-arrow">↗</div>
+      </div>
+      <div class="proj-type">AI · Education · Featured</div>
+      <div class="proj-name">AI for Children</div>
+      <p class="proj-desc">A multi-modal AI experience for young learners — combining interactive lessons, storytelling, and conversational AI. Built with Google AI Studio and advanced prompt engineering to make AI safe, fun, and educational for kids.</p>
+      <div class="proj-tags">
+        <span class="proj-tag">Google AI Studio</span>
+        <span class="proj-tag">Prompt Engineering</span>
+        <span class="proj-tag">EdTech</span>
+        <span class="proj-tag">AI Safety</span>
+      </div>
+    </div>
+
+    <div class="project-card fade-in">
+      <div class="proj-top">
+        <span class="proj-emoji">⚡</span>
+        <div class="proj-arrow">↗</div>
+      </div>
+      <div class="proj-type">Front-End · Web App</div>
+      <div class="proj-name">BrandForge</div>
+      <p class="proj-desc">A front-end platform helping users craft and communicate their personal or business brand identity. Clean UI, responsive design, built solo from concept to deployment.</p>
+      <div class="proj-tags">
+        <span class="proj-tag">HTML / CSS</span>
+        <span class="proj-tag">JavaScript</span>
+        <span class="proj-tag">UI/UX</span>
+      </div>
+    </div>
+
+    <div class="project-card fade-in">
+      <div class="proj-top">
+        <span class="proj-emoji">🗺️</span>
+        <div class="proj-arrow">↗</div>
+      </div>
+      <div class="proj-type">Full-Stack · Web Platform</div>
+      <div class="proj-name">The Culinary Map</div>
+      <p class="proj-desc">A full-stack platform mapping global cuisines and recipes. Node.js and MongoDB on the back end, a responsive elegant interface on the front — a love letter to food and code.</p>
+      <div class="proj-tags">
+        <span class="proj-tag">Node.js</span>
+        <span class="proj-tag">MongoDB</span>
+        <span class="proj-tag">HTML / CSS</span>
+      </div>
+    </div>
+
+    <div class="project-card fade-in">
+      <div class="proj-top">
+        <span class="proj-emoji">✨</span>
+        <div class="proj-arrow">↗</div>
+      </div>
+      <div class="proj-type">Content Brand · Digital Media</div>
+      <div class="proj-name">Sugar & Spice</div>
+      <p class="proj-desc">A personal content brand built around food, lifestyle, and creative storytelling. Multi-platform content with real audience engagement — copywriting, scheduling, and analytics all managed solo.</p>
+      <div class="proj-tags">
+        <span class="proj-tag">Content Strategy</span>
+        <span class="proj-tag">Copywriting</span>
+        <span class="proj-tag">Social Media</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="skills-section">
+  <div class="section-label">What I bring</div>
+  <h2 class="section-title">Skills & Tools</h2>
+  <p class="section-sub">A rare blend — I can build it, design it, explain it, and market it.</p>
+
+  <div class="skills-grid">
+    <div class="skill-group">
+      <span class="sg-icon">💻</span>
+      <div class="sg-name">Front-End</div>
+      <ul class="sg-list">
+        <li>HTML & CSS</li>
+        <li>JavaScript</li>
+        <li>Responsive Design</li>
+        <li>UI / UX Thinking</li>
+      </ul>
+    </div>
+    <div class="skill-group">
+      <span class="sg-icon">🤖</span>
+      <div class="sg-name">AI & Emerging Tech</div>
+      <ul class="sg-list">
+        <li>Prompt Engineering</li>
+        <li>Google AI Studio</li>
+        <li>AI Product Building</li>
+        <li>LLM Workflows</li>
+      </ul>
+    </div>
+    <div class="skill-group">
+      <span class="sg-icon">🔧</span>
+      <div class="sg-name">Back-End (Learning)</div>
+      <ul class="sg-list">
+        <li>Node.js</li>
+        <li>MongoDB</li>
+        <li>REST APIs</li>
+        <li>Git & Version Control</li>
+      </ul>
+    </div>
+    <div class="skill-group">
+      <span class="sg-icon">✍️</span>
+      <div class="sg-name">Creative & Content</div>
+      <ul class="sg-list">
+        <li>Content Writing</li>
+        <li>Copywriting</li>
+        <li>Social Media Mgmt</li>
+        <li>Brand Building</li>
+      </ul>
+    </div>
+    <div class="skill-group">
+      <span class="sg-icon">🛡️</span>
+      <div class="sg-name">Cybersecurity</div>
+      <ul class="sg-list">
+        <li>Cisco NetAcad Certified</li>
+        <li>Cybersecurity Fundamentals</li>
+        <li>IT Essentials</li>
+        <li>Network Basics</li>
+      </ul>
+    </div>
+    <div class="skill-group">
+      <span class="sg-icon">💬</span>
+      <div class="sg-name">Communication</div>
+      <ul class="sg-list">
+        <li>Customer Support</li>
+        <li>Written Communication</li>
+        <li>Remote Collaboration</li>
+        <li>English (Professional)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CERTS -->
+<section id="certs">
+  <div class="section-label">Credentials</div>
+  <h2 class="section-title">Certifications</h2>
+  <p class="section-sub">Verified skills — always learning, always adding.</p>
+
+  <div class="certs-list">
+    <div class="cert-card fade-in">
+      <div class="cert-icon">🛡️</div>
+      <div>
+        <div class="cert-name">Cybersecurity Fundamentals</div>
+        <div class="cert-issuer">Cisco NetAcad · Certificate & Badge</div>
+      </div>
+    </div>
+    <div class="cert-card fade-in">
+      <div class="cert-icon">💻</div>
+      <div>
+        <div class="cert-name">IT Essentials</div>
+        <div class="cert-issuer">Cisco NetAcad · Certificate</div>
+      </div>
+    </div>
+    <div class="cert-card fade-in">
+      <div class="cert-icon">🎓</div>
+      <div>
+        <div class="cert-name">BSc. Computer Science</div>
+        <div class="cert-issuer">Nigerian University · Class of 2024</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <div class="section-label">Let's connect</div>
+  <h2 class="section-title">Open to opportunities</h2>
+  <p class="section-sub">Whether it's a remote role, a collaboration, or just a conversation — I'd love to hear from you.</p>
+  <div class="contact-links">
+    <a href="mailto:your.email@gmail.com" class="contact-link">✉️ Email me</a>
+    <a href="https://linkedin.com/in/manarliman" class="contact-link">LinkedIn</a>
+    <a href="#" class="contact-link">📄 Download CV</a>
+  </div>
+</section>
+
+<footer>
+  <p>Designed & built with intention — Manar Liman © 2025</p>
+</footer>
+
+<script>
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if(e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 80);
+  });
+}, {threshold: 0.1});
+document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>

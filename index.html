@@ -7,12 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --ink:#0f0f14;--ink-soft:#4a4a5a;--ink-muted:#8a8a9a;
-  --cream:#faf9f5;--surface:#f2f0e8;
-  --accent:#1A56DB;--accent-soft:#dde9fb;--accent-dark:#0d3a9e;
-  --gold:#c9933a;--gold-soft:#fdf3e3;
-}
+:root{--ink:#0f0f14;--ink-soft:#4a4a5a;--ink-muted:#8a8a9a;--cream:#faf9f5;--surface:#f2f0e8;--accent:#1A56DB;--accent-soft:#dde9fb;--accent-dark:#0d3a9e;--gold:#c9933a;--gold-soft:#fdf3e3}
 html{scroll-behavior:smooth}
 body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);line-height:1.6;overflow-x:hidden;font-size:16px}
 
@@ -26,20 +21,19 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .hero-tag{display:inline-flex;align-items:center;gap:0.5rem;background:var(--accent-soft);color:var(--accent-dark);font-size:0.75rem;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;padding:0.4rem 1rem;border-radius:100px;width:fit-content;margin-bottom:1rem}
 .hero-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(0.8)}}
-.hero h1{font-family:'Playfair Display',serif;font-size:2.6rem;line-height:1.1;letter-spacing:-0.02em;margin-bottom:1rem}
+.hero h1{font-family:'Playfair Display',serif;font-size:2.6rem;line-height:1.1;letter-spacing:-0.02em;margin-bottom:1rem;color:var(--ink)}
 .hero h1 em{font-style:italic;color:var(--accent)}
 .hero-desc{font-size:0.95rem;color:var(--ink-soft);line-height:1.8;margin-bottom:1.75rem}
 .hero-ctas{display:flex;gap:0.75rem;flex-wrap:wrap}
-
 .btn-primary{display:inline-flex;align-items:center;gap:0.4rem;background:var(--accent);color:white;padding:0.8rem 1.5rem;border-radius:100px;text-decoration:none;font-size:0.875rem;font-weight:500;transition:background 0.2s;border:none;cursor:pointer}
 .btn-primary:hover{background:var(--accent-dark)}
-.btn-ghost{display:inline-flex;align-items:center;gap:0.4rem;background:transparent;color:var(--ink);padding:0.8rem 1.5rem;border-radius:100px;text-decoration:none;font-size:0.875rem;font-weight:500;border:1.5px solid rgba(15,15,20,0.2);transition:border-color 0.2s,color 0.2s;cursor:pointer}
+.btn-ghost{display:inline-flex;align-items:center;background:transparent;color:var(--ink);padding:0.8rem 1.5rem;border-radius:100px;text-decoration:none;font-size:0.875rem;font-weight:500;border:1.5px solid rgba(15,15,20,0.2);transition:border-color 0.2s,color 0.2s;cursor:pointer}
 .btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
 
 .identity-card{background:white;border:1px solid rgba(15,15,20,0.1);border-radius:20px;padding:1.5rem;box-shadow:0 12px 40px rgba(15,15,20,0.08);position:relative}
 .card-avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#5b8dee);display:flex;align-items:center;justify-content:center;color:white;font-family:'Playfair Display',serif;font-size:1.2rem;margin-bottom:1rem}
-.card-name{font-family:'Playfair Display',serif;font-size:1.2rem;margin-bottom:0.2rem}
-.card-title-sm{font-size:0.8rem;color:var(--ink-muted);margin-bottom:1.25rem}
+.card-name{font-family:'Playfair Display',serif;font-size:1.2rem;margin-bottom:0.2rem;color:var(--ink)}
+.card-sub{font-size:0.8rem;color:var(--ink-muted);margin-bottom:1.25rem}
 .card-pills{display:flex;flex-wrap:wrap;gap:0.4rem;margin-bottom:1.25rem}
 .pill{background:var(--accent-soft);color:var(--accent-dark);font-size:0.72rem;font-weight:500;padding:0.3rem 0.75rem;border-radius:100px}
 .pill.gold{background:var(--gold-soft);color:#8a5c14}
@@ -52,7 +46,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 
 section{padding:3.5rem 1.25rem}
 .section-label{font-size:0.72rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:0.6rem}
-.section-title{font-family:'Playfair Display',serif;font-size:1.9rem;letter-spacing:-0.02em;line-height:1.15;margin-bottom:0.75rem}
+.section-title{font-family:'Playfair Display',serif;font-size:1.9rem;letter-spacing:-0.02em;line-height:1.15;margin-bottom:0.75rem;color:var(--ink)}
 .section-sub{font-size:0.9rem;color:var(--ink-soft);line-height:1.75;margin-bottom:2rem}
 
 .projects-list{display:flex;flex-direction:column;gap:1rem}
@@ -68,7 +62,8 @@ section{padding:3.5rem 1.25rem}
 .project-card.featured .proj-arrow{border-color:rgba(255,255,255,0.2);color:rgba(255,255,255,0.6)}
 .proj-type{font-size:0.7rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);margin-bottom:0.3rem}
 .project-card.featured .proj-type{color:var(--gold)}
-.proj-name{font-family:'Playfair Display',serif;font-size:1.25rem;margin-bottom:0.6rem;letter-spacing:-0.01em}
+.proj-name{font-family:'Playfair Display',serif;font-size:1.25rem;margin-bottom:0.6rem;letter-spacing:-0.01em;color:var(--ink)}
+.project-card.featured .proj-name{color:white}
 .proj-desc{font-size:0.875rem;color:var(--ink-soft);line-height:1.7;margin-bottom:1.1rem}
 .project-card.featured .proj-desc{color:rgba(255,255,255,0.6)}
 .proj-tags{display:flex;flex-wrap:wrap;gap:0.35rem}
@@ -90,13 +85,14 @@ section{padding:3.5rem 1.25rem}
 .certs-list{display:flex;flex-direction:column;gap:0.85rem}
 .cert-card{background:white;border:1px solid rgba(15,15,20,0.08);border-radius:14px;padding:1.1rem 1.25rem;display:flex;gap:1rem;align-items:center}
 .cert-icon{width:42px;height:42px;border-radius:10px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
-.cert-name{font-weight:500;font-size:0.875rem;margin-bottom:0.2rem}
+.cert-name{font-weight:500;font-size:0.875rem;margin-bottom:0.2rem;color:var(--ink)}
 .cert-issuer{font-size:0.75rem;color:var(--ink-muted)}
 
-.volunteer-section{background:var(--surface)}
+.vol-section{background:var(--surface)}
+.vol-list{display:flex;flex-direction:column;gap:1rem}
 .vol-card{background:white;border:1px solid rgba(15,15,20,0.08);border-radius:18px;padding:1.5rem;display:flex;gap:1rem;align-items:flex-start}
 .vol-icon{width:48px;height:48px;border-radius:12px;background:var(--gold-soft);display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
-.vol-name{font-family:'Playfair Display',serif;font-size:1.1rem;margin-bottom:0.25rem}
+.vol-name{font-family:'Playfair Display',serif;font-size:1.05rem;margin-bottom:0.25rem;color:var(--ink)}
 .vol-meta{font-size:0.78rem;color:var(--accent);font-weight:500;margin-bottom:0.5rem}
 .vol-desc{font-size:0.875rem;color:var(--ink-soft);line-height:1.7}
 
@@ -144,6 +140,7 @@ footer{text-align:center;padding:1.5rem 1.25rem;font-size:0.75rem;color:var(--in
     <li><a href="#projects">Work</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#certs">Certs</a></li>
+    <li><a href="#volunteer">Volunteering</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -162,7 +159,7 @@ footer{text-align:center;padding:1.5rem 1.25rem;font-size:0.75rem;color:var(--in
     <div class="avail-badge">✅ Available now</div>
     <div class="card-avatar">AML</div>
     <div class="card-name">Aisha Manar Liman</div>
-    <div class="card-title-sm">Digital Professional · Kano, Nigeria</div>
+    <div class="card-sub">Digital Professional · Kano, Nigeria</div>
     <div class="card-pills">
       <span class="pill">React</span>
       <span class="pill">Frontend Dev</span>
@@ -185,21 +182,18 @@ footer{text-align:center;padding:1.5rem 1.25rem;font-size:0.75rem;color:var(--in
   <div class="projects-list">
 
     <div class="project-card featured fade-in">
-      <div class="proj-top"><span class="proj-emoji">🤖</span><div class="proj-arrow">↗</div></div>
-      <div class="proj-type">AI · Education · Featured</div>
-      <div class="proj-name">AI for Children</div>
+      <div class="proj-top"><span class="proj-emoji">🧒</span><div class="proj-arrow">↗</div></div>
+      <div class="proj-type">EdTech · AI-Powered · Featured · 2026</div>
+      <div class="proj-name">Tiny Teachers</div>
       <p class="proj-desc">A multi-modal interactive web platform combining learning, storytelling, and conversational features built for young users. Built with JavaScript, Firebase, and API integration — making technology safe, fun, and genuinely educational for kids.</p>
       <div class="proj-tags">
-        <span class="proj-tag">JavaScript</span>
-        <span class="proj-tag">Firebase</span>
-        <span class="proj-tag">API Integration</span>
-        <span class="proj-tag">EdTech</span>
+        <span class="proj-tag">JavaScript</span><span class="proj-tag">Firebase</span><span class="proj-tag">API Integration</span><span class="proj-tag">EdTech</span>
       </div>
     </div>
 
     <div class="project-card fade-in">
       <div class="proj-top"><span class="proj-emoji">⚡</span><div class="proj-arrow">↗</div></div>
-      <div class="proj-type">Front-End · Web App · 2022</div>
+      <div class="proj-type">Front-End · Web App · 2025</div>
       <div class="proj-name">BrandForge</div>
       <p class="proj-desc">A React-based platform helping users craft and communicate their personal or business brand identity. Component-based, responsive, deployed solo from concept to launch.</p>
       <div class="proj-tags">
@@ -275,19 +269,19 @@ footer{text-align:center;padding:1.5rem 1.25rem;font-size:0.75rem;color:var(--in
   <div class="certs-list">
     <div class="cert-card fade-in">
       <div class="cert-icon">🤖</div>
-      <div><div class="cert-name">Generative AI (x3)</div><div class="cert-issuer">Nigerian Learning Passport · Microsoft · Ministry of Education · 2024</div></div>
+      <div><div class="cert-name">Generative AI: Foundation, Intermediate & Master</div><div class="cert-issuer">Nigerian Learning Passport · Microsoft · Ministry of Education · 2025</div></div>
     </div>
     <div class="cert-card fade-in">
       <div class="cert-icon">🌍</div>
-      <div><div class="cert-name">UNESCO Municipal Youth Hackathon</div><div class="cert-issuer">Certificate of Participation · Media & Information Literacy · 2025</div></div>
+      <div><div class="cert-name">UNESCO Youth Hackathon</div><div class="cert-issuer">Certificate of Participation · Media & Information Literacy · 2025</div></div>
     </div>
     <div class="cert-card fade-in">
       <div class="cert-icon">🛡️</div>
-      <div><div class="cert-name">Cybersecurity Fundamentals</div><div class="cert-issuer">Cisco NetAcad · Certificate & Badge · 2024</div></div>
+      <div><div class="cert-name">Cybersecurity Fundamentals</div><div class="cert-issuer">Cisco NetAcad · Certificate & Badge · 2025</div></div>
     </div>
     <div class="cert-card fade-in">
       <div class="cert-icon">💻</div>
-      <div><div class="cert-name">IT Essentials</div><div class="cert-issuer">Cisco NetAcad · Certificate · 2024</div></div>
+      <div><div class="cert-name">IT Essentials</div><div class="cert-issuer">Cisco NetAcad · Certificate · 2025</div></div>
     </div>
     <div class="cert-card fade-in">
       <div class="cert-icon">👩‍🏫</div>
@@ -295,21 +289,31 @@ footer{text-align:center;padding:1.5rem 1.25rem;font-size:0.75rem;color:var(--in
     </div>
     <div class="cert-card fade-in">
       <div class="cert-icon">🎓</div>
-      <div><div class="cert-name">BSc. Computer Science</div><div class="cert-issuer">Maryam Abacha American University of Nigeria · 2024</div></div>
+      <div><div class="cert-name">BSc. Computer Science</div><div class="cert-issuer">Maryam Abacha American University of Nigeria · 2025</div></div>
     </div>
   </div>
 </section>
 
-<section class="volunteer-section">
+<section id="volunteer" class="vol-section">
   <div class="section-label">Giving Back</div>
-  <h2 class="section-title">Volunteering</h2>
+  <h2 class="section-title">Volunteering & Community</h2>
   <p class="section-sub">Tech is more powerful when it's shared.</p>
-  <div class="vol-card fade-in">
-    <div class="vol-icon">👩‍🏫</div>
-    <div>
-      <div class="vol-name">Tech Sis Diaries</div>
-      <div class="vol-meta">Supporting Instructor · Digital Skills Programme · 2025 · 6 Weeks</div>
-      <div class="vol-desc">Supported the delivery of basic digital skills sessions to underprivileged girls over a 6-week programme — helping make technology accessible and approachable for young women who had never had the chance to engage with it before.</div>
+  <div class="vol-list">
+    <div class="vol-card fade-in">
+      <div class="vol-icon">👩‍🏫</div>
+      <div>
+        <div class="vol-name">Tech Sis Diaries</div>
+        <div class="vol-meta">Supporting Instructor · Digital Skills Programme · 2025 · 6 Weeks</div>
+        <div class="vol-desc">Supported the delivery of basic digital skills sessions to underprivileged girls over a 6-week programme — helping make technology accessible and approachable for young women who had never had the chance to engage with it before.</div>
+      </div>
+    </div>
+    <div class="vol-card fade-in">
+      <div class="vol-icon">🌍</div>
+      <div>
+        <div class="vol-name">Generative AI Seminar — Abuja</div>
+        <div class="vol-meta">Attendee & Community Participant · 2025</div>
+        <div class="vol-desc">Attended a Generative AI seminar in Abuja organised in collaboration with the Ministry of Education, Microsoft, and the Nigerian Learning Passport initiative — completing Foundation, Intermediate, and Master-level certifications and engaging with the wider Nigerian AI community.</div>
+      </div>
     </div>
   </div>
 </section>
@@ -320,17 +324,17 @@ footer{text-align:center;padding:1.5rem 1.25rem;font-size:0.75rem;color:var(--in
   <p class="section-sub">Whether it's a remote role, a collaboration, or just a conversation — I'd love to hear from you.</p>
   <div class="contact-links">
     <a href="mailto:aishamanarliman@gmail.com" class="contact-link">✉️ Email me</a>
-    <a href="#" class="contact-link">📄 Download CV</a>
+    <a href="/mnt/user-data/outputs/Aisha_Manar_Liman_Resume_Final.pdf" download="Aisha_Manar_Liman_CV.pdf" class="contact-link">📄 Download CV</a>
   </div>
 </section>
 
 <footer><p>Designed & built with intention — Aisha Manar Liman © 2026</p></footer>
 
 <script>
-const obs = new IntersectionObserver((entries) => {
-  entries.forEach((e,i) => { if(e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i*80) });
+const obs=new IntersectionObserver((entries)=>{
+  entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('visible'),i*80)});
 },{threshold:0.1});
-document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
 </script>
 </body>
 </html>
